@@ -12,8 +12,6 @@ const { exec } = require('child_process')
 const fetch = require('node-fetch');
 const bent = require('bent')
 const color = require('./lib/color')
-const { doing } = require('./lib/translate.js')
-const { translate } = require('./lib')
 const wel = JSON.parse(fs.readFileSync('./lib/welcome.json')) 
 const nsfwgrp = JSON.parse(fs.readFileSync('./lib/nsfw.json')) 
 const ban = JSON.parse(fs.readFileSync('./lib/banned.json'))
@@ -722,7 +720,7 @@ ${desc}`)
             let walnimek = walnime[Math.floor(Math.random() * walnime.length)]
             client.sendFileFromUrl(from, walnimek, 'Nimek.jpg', '', message.id)
             break
-        case 'meme':
+        /*case 'meme':
             const response = await axios.get('https://meme-api.herokuapp.com/gimme/wholesomeanimemes');
             const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
             await client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
