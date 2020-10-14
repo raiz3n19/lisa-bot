@@ -153,6 +153,15 @@ module.exports = msgHandler = async (client, message) => {
             const resultJadwal = `Jadwal shalat di ${daerah}, ${tgl}-${arrbulan[bln]}-${thn}\n\nImsyak : ${Imsyak}\nSubuh : ${Subuh}\nDhuha : ${Dhuha}\nDzuhur : ${Dzuhur}\nAshar : ${Ashar}\nMaghrib : ${Maghrib}\nIsya : ${Isya}`
             client.reply(from, resultJadwal, id)
             break
+        case 'translate':
+            arg = body.trim().split(' ')
+            if (arg.length != 2) return client.reply(from, 'Wrong Format!', id)
+            if (!quotedMsg) return client.reply(from, 'Wrong Format!', id)
+            const quoteText = quotedMsg.type == 'chat' ? quotedMsg.body : quotedMsg.type == 'image' ? quotedMsg.caption : ''
+            translate(quoteText, arg[1])
+                .then((result) => client.sendText(from, result))
+                .catch(() => client.sendText(from, 'An error occured!'))
+            break
         case 'tsticker':
             if (isMedia && type == 'image') {
               try {
