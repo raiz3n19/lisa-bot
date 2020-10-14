@@ -4,3 +4,24 @@
 [1010/014801.405:ERROR:file_io_win.cc(161)] CreateFile C:\Users\ASUS\AppData\Local\Temp\puppeteer_dev_chrome_profile-F28XhQ\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
 [1010/014801.420:ERROR:file_io_win.cc(170)] CreateFile C:\Users\ASUS\AppData\Local\Temp\puppeteer_dev_chrome_profile-F28XhQ\Crashpad\reports\f633c55f-08bc-495d-b2eb-fe27e60b1e24.dmp: The system cannot find the path specified. (0x3)
 [1010/014801.420:ERROR:crash_report_exception_handler.cc(97)] PrepareNewCrashReport failed
+[1014/141751.033:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1014/143021.061:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[1014/143021.061:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[1014/143021.073:ERROR:file_io_win.cc(162)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-ZcvtXL\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1014/143021.073:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-ZcvtXL\Crashpad\reports\a8dbc593-841c-4ec0-acfa-efe0773868a1.dmp: The system cannot find the path specified. (0x3)
+[1014/143021.073:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed
+[1014/144139.969:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1014/145002.308:ERROR:file_io_win.cc(162)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-WjV84A\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1014/145002.308:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-WjV84A\Crashpad\reports\48965249-f62d-4943-b39d-c21b60ec5149.dmp: The system cannot find the path specified. (0x3)
+[1014/145002.308:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed
+[1014/145641.785:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[1014/145641.841:ERROR:file_io_win.cc(162)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-3FJv3j\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1014/145641.841:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-3FJv3j\Crashpad\reports\e310b932-2ec4-406d-883b-c15bf77ef35d.dmp: The system cannot find the path specified. (0x3)
+[1014/145641.841:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed
+[1014/150658.506:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1014/162459.122:ERROR:file_io_win.cc(162)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-bIa187\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1014/162459.122:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-bIa187\Crashpad\reports\6a95e0be-1e0e-478d-a11c-54aa834fd7e2.dmp: The system cannot find the path specified. (0x3)
+[1014/162459.122:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed
+[1014/163215.071:ERROR:file_io_win.cc(162)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-lFYncu\Crashpad\settings.dat: The system cannot find the path specified. (0x3)
+[1014/163215.087:ERROR:file_io_win.cc(171)] CreateFile C:\Users\Dudut\AppData\Local\Temp\puppeteer_dev_chrome_profile-lFYncu\Crashpad\reports\e34af958-6508-4cb4-8891-8c8568f0f065.dmp: The system cannot find the path specified. (0x3)
+[1014/163215.102:ERROR:crash_report_exception_handler.cc(99)] PrepareNewCrashReport failed

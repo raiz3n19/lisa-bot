@@ -56,7 +56,6 @@ module.exports = msgHandler = async (client, message) => {
         msgFilter.addFilter(from)
 
         const uaOverride = 'WhatsApp/2.2029.4 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
-        const isUrl = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/gi)
         if (!isBanned) {
             switch (command) {
             case 'sticker':
@@ -110,6 +109,37 @@ module.exports = msgHandler = async (client, message) => {
                 let cewej = itemsj[Math.floor(Math.random() *itemsj.length)]
                 client.sendFileFromUrl(from, cewej, 'jihyoo.jpeg', 'Halo sayang', id)
                 break
+                case 'brainly':
+                    if (args.length >= 2){
+                        const BrainlySearch = require('./lib/brainly')
+                        let tanya = body.slice(9)
+                        let jum = Number(tanya.split('.')[1]) || 2
+                        if (jum > 10) return client.reply(from, 'Max 10!', id)
+                        if (Number(tanya[tanya.length-1])){
+                            tanya
+                        }
+                        client.reply(from, `➸ *Pertanyaan* : ${tanya.split('.')[0]}\n\n➸ *Jumlah jawaban* : ${Number(jum)}`, id)
+                        await BrainlySearch(tanya.split('.')[0],Number(jum), function(res){
+                            res.forEach(x=>{
+                                if (x.jawaban.fotoJawaban.length == 0) {
+                                    client.reply(from, `➸ *Pertanyaan* : ${x.pertanyaan}\n\n➸ *Jawaban* : ${x.jawaban.judulJawaban}\n`, id)
+                                } else {
+                                    client.reply(from, `➸ *Pertanyaan* : ${x.pertanyaan}\n\n➸ *Jawaban* 〙: ${x.jawaban.judulJawaban}\n\n➸ *Link foto jawaban* : ${x.jawaban.fotoJawaban.join('\n')}`, id)
+                                }
+                            })
+                        })
+                    } else {
+                        client.reply(from, 'Usage :\n!brainly [pertanyaan] [.jumlah]\n\nEx : \n!brainly NKRI .2', id)
+                    }
+                    break
+                case 'stat': {
+                    const loadedMsg = await client.getAmountOfLoadedMessages()
+                    const chatIds = await client.getAllChatIds()
+                    const groups = await client.getAllGroups()
+                    const blok = await client.getBlockedIds()
+                    client.sendText(from, `Status :\n- *${loadedMsg}* Loaded Messages\n- *${groups.length}* Group Chats\n- *${blok.length}* Kontak Terblokir\n- *${chatIds.length - groups.length}* Personal Chats\n- *${chatIds.length}* Total Chats`)
+                    break
+                    }
          case 'jadwalshalat':
             if (args.length === 0) return client.reply(from, '[❗] Kirim perintah *!jadwalShalat [daerah]*\ncontoh : *!jadwalShalat Tangerang*\nUntuk list daerah kirim perintah *!listDaerah*')
             const daerah = body.slice(14)
@@ -139,6 +169,25 @@ module.exports = msgHandler = async (client, message) => {
                     console.log(err)
                 }
             }
+            break
+        case 'infogempa':
+            const bmkg = await get.get('https://mhankbarbar.herokuapp.com/api/infogempa').json()
+            const { potensi, koordinat, lokasi, kedalaman, magnitude, waktu, map } = bmkg
+            const hasil = `*${waktu}*\n📍 *Lokasi* : *${lokasi}*\n〽️ *Kedalaman* : *${kedalaman}*\n💢 *Magnitude* : *${magnitude}*\n🔘 *Potensi* : *${potensi}*\n📍 *Koordinat* : *${koordinat}*`
+            client.sendFileFromUrl(from, map, 'shakemap.jpg', hasil, id)
+            break
+            case 'chord':
+                if (args.length === 0) return client.reply(from, 'Kirim perintah *!chord [query]*, contoh *!chord aku bukan boneka*', id)
+                const query__ = body.slice(7)
+                const chord = await get.get('https://mhankbarbar.herokuapp.com/api/chord?q='+ query__).json()
+                if (chord.error) return client.reply(from, chord.error, id)
+                client.reply(from, chord.result, id)
+                break
+                case 'lirik':
+            if (args.length == 0) return client.reply(from, 'Kirim perintah *#lirik [optional]*, contoh *#lirik aku bukan boneka*', id)
+            const lagu = body.slice(7)
+            const lirik = await liriklagu(lagu)
+            client.reply(from, lirik, id)
             break
         case 'gsticker':
             if (isMedia && type == 'video') {
@@ -573,13 +622,6 @@ ${desc}`)
                  await client.sendFileFromUrl(from, errorurl, 'error.png', '💔️ An Error Occured', id)
                }
             }
-            break
-        case 'lyrics':
-            if (args.length == 0) return client.reply(from, 'Wrong Format', message.id)
-            const lagu = body.slice(7)
-            console.log(lagu)
-            const lirik = await liriklagu(lagu)
-            client.sendText(from, lirik)
             break
         case 'anime':
             const keyword = message.body.replace('#anime', '')
