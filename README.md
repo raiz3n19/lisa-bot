@@ -1,3 +1,3 @@
 # LISA-BOT
 
-# gausah pake readme lah ya
+ gausah pake readme lah ya
