@@ -4,7 +4,6 @@ const axios = require('axios')
 const moment = require('moment-timezone')
 const get = require('got')
 const { RemoveBgResult, removeBackgroundFromImageBase64, removeBackgroundFromImageFile } = require('remove.bg') //paid
-const color = require('./lib/color')
 const { liriklagu, quotemaker, wall } = require('./lib/functions')
 const { help, info, } = require('./lib/help')
 const msgFilter = require('./lib/msgFilter')
